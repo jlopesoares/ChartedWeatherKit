@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class WeatherViewController: UIViewController {
   
@@ -17,6 +18,7 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var maximumTemperatureLabel: UILabel!
     
+    @IBOutlet weak var weatherChartContainerView: UIView!
     
     var viewModel = WeatherViewModel()
     
@@ -25,7 +27,7 @@ class WeatherViewController: UIViewController {
 
 
         Task {
-            guard let weather = await viewModel.getWeather() else {
+            guard let _ = await viewModel.getWeather() else {
                 print("Something as failed")
                 return
             }
@@ -34,6 +36,15 @@ class WeatherViewController: UIViewController {
             currentWeatherLabel.text = viewModel.currentTemperature
             minimumTemperatureLabel.text = viewModel.dailyMinTemperature
             maximumTemperatureLabel.text = viewModel.dailyMaxTemperature
+            
+            setupChart()
         }
+    }
+    
+    func setupChart() {
+        
+        let hosting = UIHostingController(rootView: WeatherChart(forecast: viewModel.hourlyWeather))
+        weatherChartContainerView.addSubview(hosting.view)
+        hosting.view.frame = weatherChartContainerView.bounds
     }
 }

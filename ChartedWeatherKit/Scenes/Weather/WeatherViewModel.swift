@@ -42,6 +42,18 @@ final class WeatherViewModel {
         
         return "Max.:" + highTemp
     }
+    
+    var hourlyWeather: [HourlyWeather] {
+        
+        guard let weather else {
+            return []
+        }
+        
+        return weather.dailyForecast.forecast
+            .map({ HourlyWeather(hour: $0.date.formatted(date: .abbreviated, time: .shortened),
+                                 temperature: Int($0.highTemperature.value)) })
+    }
+    
 }
 
 //MARK: - Service

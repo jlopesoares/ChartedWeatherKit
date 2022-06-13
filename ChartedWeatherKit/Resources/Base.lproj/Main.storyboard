@@ -50,13 +50,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJQ-gK-RcE">
+                                <rect key="frame" x="16" y="274" width="358" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Krt-Sj-ark"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zjZ-bO-xwz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="LqJ-RP-F4H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zjZ-bO-xwz" secondAttribute="trailing" constant="16" id="Myd-zN-g4n"/>
+                            <constraint firstItem="dJQ-gK-RcE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xnb-dv-W2N"/>
                             <constraint firstItem="zjZ-bO-xwz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lOe-ZA-dJd"/>
+                            <constraint firstItem="dJQ-gK-RcE" firstAttribute="top" secondItem="zjZ-bO-xwz" secondAttribute="bottom" constant="16" id="qS9-BH-DcA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dJQ-gK-RcE" secondAttribute="trailing" constant="16" id="tFb-UR-fmR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -64,6 +74,7 @@
                         <outlet property="locationLabel" destination="PGU-vv-5qN" id="2ZO-PY-Y5f"/>
                         <outlet property="maximumTemperatureLabel" destination="DEs-4J-oB7" id="Ozc-f4-6a9"/>
                         <outlet property="minimumTemperatureLabel" destination="RnP-gq-w00" id="rgN-fJ-JbQ"/>
+                        <outlet property="weatherChartContainerView" destination="dJQ-gK-RcE" id="GZg-FZ-9h6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
