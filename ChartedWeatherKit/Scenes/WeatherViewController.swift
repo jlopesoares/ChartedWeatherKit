@@ -25,13 +25,15 @@ class WeatherViewController: UIViewController {
 
 
         Task {
-            guard let currentWeather = await viewModel.getWeather()?.currentWeather else {
+            guard let weather = await viewModel.getWeather() else {
                 print("Something as failed")
                 return
             }
             
-            locationLabel.text = "Lisbon"
-            currentWeatherLabel.text = "\(currentWeather.temperature.value)"
+            locationLabel.text = viewModel.currentLocation
+            currentWeatherLabel.text = viewModel.currentTemperature
+            minimumTemperatureLabel.text = viewModel.dailyMinTemperature
+            maximumTemperatureLabel.text = viewModel.dailyMaxTemperature
         }
     }
 }
