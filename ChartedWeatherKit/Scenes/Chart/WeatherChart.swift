@@ -16,10 +16,11 @@ struct WeatherChart: View {
     var body: some View {
         Chart (forecast, id: \.hour){ hourWeather in
             
-            LineMark(x: .value("hour", hourWeather.hour ),
+            LineMark(x: .value("hour", hourWeather.hour),
                      y: .value("temperature", hourWeather.temperature))
             
             .interpolationMethod(.cardinal)
+            .foregroundStyle(.linearGradient(.init(colors: [.blue, .green]), startPoint: .zero, endPoint: .trailing))
         }
         .chartYScale(domain: 10...40)
     

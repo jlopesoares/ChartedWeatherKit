@@ -49,11 +49,11 @@ final class WeatherViewModel {
             return []
         }
         
-        return weather.dailyForecast.forecast
-            .map({ HourlyWeather(hour: $0.date.formatted(date: .abbreviated, time: .shortened),
-                                 temperature: Int($0.highTemperature.value)) })
+        return weather.hourlyForecast.forecast
+            .filter({ Calendar.current.component(.day, from: $0.date) == Calendar.current.component(.day, from: Date()) })
+            .map({ HourlyWeather(hour: "\(Calendar.current.component(.hour, from: $0.date))",
+                                 temperature: Int($0.temperature.value)) })
     }
-    
 }
 
 //MARK: - Service
